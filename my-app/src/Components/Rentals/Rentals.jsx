@@ -1,14 +1,19 @@
 import "./Rentals.css";
+import data from "./db.json"
+import { useState } from "react";
 
 export const Rentals = () => {
+
+  //const [data,setData] = useState({})
+
   return (
     <div className="rentalContainer">
       <div className="sortingButtons">
-        <button className="sortById">Sort by ID</button>
+        <button className="sortById" >Sort by ID</button>
         <button className="sortByRentAsc">Rent Low to high</button>
-        <button className="sortByRentDesc">Rent High to low</button>
-        <button className="sortByAreaAsc">Area Low to high</button>
-        <button className="sortByAreaDesc">Area High to Low</button>
+        <button className="sortByRentDesc" >Rent High to low</button>
+        <button className="sortByAreaAsc" >Area Low to high</button>
+        <button className="sortByAreaDesc" >Area High to Low</button>
       </div>
       <input
         className="searchAddress"
@@ -29,7 +34,8 @@ export const Rentals = () => {
           </tr>
         </thead>
         <tbody>
-          {[].map((house, index) => {
+          {data.house.map((house, index) => {
+
             return (
               <tr key={house.id} className="houseDetails">
                 <td className="houseId">{house.id}</td>
